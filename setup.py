@@ -7,7 +7,8 @@ setup(
     packages=find_packages(),
     install_requires=[
         'boto3',
-        'pyyaml'
+        'pyyaml',
+        'python-dotenv'
     ],
     entry_points={
         'console_scripts': [
