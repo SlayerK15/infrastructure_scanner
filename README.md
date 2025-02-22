@@ -24,7 +24,7 @@ An automated tool for scanning AWS infrastructure, detecting security issues, an
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/infrastructure_scanner.git
+git clone https://github.com/SlayerK15/infrastructure_scanner.git
 cd infrastructure_scanner
 ```
 
