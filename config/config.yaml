@@ -1,0 +1,57 @@
+# config/config.yaml
+aws:
+  regions:
+    - us-east-1
+    - us-east-2
+    - us-west-1
+    - us-west-2
+    - eu-west-1
+    - eu-west-2
+    - eu-central-1
+    - ap-southeast-1
+    - ap-southeast-2
+    - ap-northeast-1
+    - ap-northeast-2
+    - ap-south-1
+  # Credentials will be loaded from .env file
+  use_env_file: true
+
+# Required resource tags
+required_tags:
+  - Environment
+  - Owner
+  - Project
+  - CostCenter
+
+# Resource usage thresholds
+unused_resource_threshold_days: 30
+unused_cpu_threshold: 5.0  # percentage
+unused_iam_threshold_days: 90  # days since last activity for IAM users/roles
+
+# Auto-remediation settings
+auto_remediate_types:
+  - unencrypted_bucket
+  - public_access_possible
+  - unused_instance
+  - unused_iam_user
+  - unused_iam_role
+
+auto_remediate_severities:
+  - high
+  - medium
+
+# Notification settings
+notifications:
+  email:
+    enabled: true
+    smtp_server: smtp.gmail.com
+    smtp_port: 587
+    use_tls: true
+    username: gathekanav@gmail.com
+    password: ${EMAIL_APP_PASSWORD}  # Gmail App Password
+    from_address: gathekanav@gmail.com
+    to_address: gathekanav@gmail.com
+  
+  slack:
+    enabled: false
+    webhook_url: ${SLACK_WEBHOOK_URL}

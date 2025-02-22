@@ -1,0 +1,267 @@
+{
+  "timestamp": "2025-02-22T18:40:29.651342",
+  "issues": [
+    {
+      "type": "public_access_possible",
+      "resource_id": "terraformdataforchatbot",
+      "region": "us-east-1",
+      "severity": "high",
+      "description": "Bucket public access is not fully blocked"
+    },
+    {
+      "type": "public_access_possible",
+      "resource_id": "terraformdataforchatbot",
+      "region": "us-east-2",
+      "severity": "high",
+      "description": "Bucket public access is not fully blocked"
+    },
+    {
+      "type": "public_access_possible",
+      "resource_id": "terraformdataforchatbot",
+      "region": "us-west-1",
+      "severity": "high",
+      "description": "Bucket public access is not fully blocked"
+    },
+    {
+      "type": "public_access_possible",
+      "resource_id": "terraformdataforchatbot",
+      "region": "us-west-2",
+      "severity": "high",
+      "description": "Bucket public access is not fully blocked"
+    },
+    {
+      "type": "public_access_possible",
+      "resource_id": "terraformdataforchatbot",
+      "region": "eu-west-1",
+      "severity": "high",
+      "description": "Bucket public access is not fully blocked"
+    },
+    {
+      "type": "public_access_possible",
+      "resource_id": "terraformdataforchatbot",
+      "region": "eu-west-2",
+      "severity": "high",
+      "description": "Bucket public access is not fully blocked"
+    },
+    {
+      "type": "public_access_possible",
+      "resource_id": "terraformdataforchatbot",
+      "region": "eu-central-1",
+      "severity": "high",
+      "description": "Bucket public access is not fully blocked"
+    },
+    {
+      "type": "public_access_possible",
+      "resource_id": "terraformdataforchatbot",
+      "region": "ap-southeast-1",
+      "severity": "high",
+      "description": "Bucket public access is not fully blocked"
+    },
+    {
+      "type": "public_access_possible",
+      "resource_id": "terraformdataforchatbot",
+      "region": "ap-southeast-2",
+      "severity": "high",
+      "description": "Bucket public access is not fully blocked"
+    },
+    {
+      "type": "public_access_possible",
+      "resource_id": "terraformdataforchatbot",
+      "region": "ap-northeast-1",
+      "severity": "high",
+      "description": "Bucket public access is not fully blocked"
+    },
+    {
+      "type": "public_access_possible",
+      "resource_id": "terraformdataforchatbot",
+      "region": "ap-northeast-2",
+      "severity": "high",
+      "description": "Bucket public access is not fully blocked"
+    },
+    {
+      "type": "public_access_possible",
+      "resource_id": "terraformdataforchatbot",
+      "region": "ap-south-1",
+      "severity": "high",
+      "description": "Bucket public access is not fully blocked"
+    },
+    {
+      "type": "unused_iam_role",
+      "resource_id": "AWSServiceRoleForApplicationAutoScaling_ECSService",
+      "region": "global",
+      "severity": "medium",
+      "description": "IAM role not used since 2024-10-03T17:08:46+00:00"
+    }
+  ],
+  "remediation_results": [
+    {
+      "issue": {
+        "type": "public_access_possible",
+        "resource_id": "terraformdataforchatbot",
+        "region": "us-east-1",
+        "severity": "high",
+        "description": "Bucket public access is not fully blocked"
+      },
+      "remediation_result": {
+        "status": "success",
+        "message": "Public access blocked"
+      }
+    },
+    {
+      "issue": {
+        "type": "public_access_possible",
+        "resource_id": "terraformdataforchatbot",
+        "region": "us-east-2",
+        "severity": "high",
+        "description": "Bucket public access is not fully blocked"
+      },
+      "remediation_result": {
+        "status": "success",
+        "message": "Public access blocked"
+      }
+    },
+    {
+      "issue": {
+        "type": "public_access_possible",
+        "resource_id": "terraformdataforchatbot",
+        "region": "us-west-1",
+        "severity": "high",
+        "description": "Bucket public access is not fully blocked"
+      },
+      "remediation_result": {
+        "status": "success",
+        "message": "Public access blocked"
+      }
+    },
+    {
+      "issue": {
+        "type": "public_access_possible",
+        "resource_id": "terraformdataforchatbot",
+        "region": "us-west-2",
+        "severity": "high",
+        "description": "Bucket public access is not fully blocked"
+      },
+      "remediation_result": {
+        "status": "success",
+        "message": "Public access blocked"
+      }
+    },
+    {
+      "issue": {
+        "type": "public_access_possible",
+        "resource_id": "terraformdataforchatbot",
+        "region": "eu-west-1",
+        "severity": "high",
+        "description": "Bucket public access is not fully blocked"
+      },
+      "remediation_result": {
+        "status": "success",
+        "message": "Public access blocked"
+      }
+    },
+    {
+      "issue": {
+        "type": "public_access_possible",
+        "resource_id": "terraformdataforchatbot",
+        "region": "eu-west-2",
+        "severity": "high",
+        "description": "Bucket public access is not fully blocked"
+      },
+      "remediation_result": {
+        "status": "success",
+        "message": "Public access blocked"
+      }
+    },
+    {
+      "issue": {
+        "type": "public_access_possible",
+        "resource_id": "terraformdataforchatbot",
+        "region": "eu-central-1",
+        "severity": "high",
+        "description": "Bucket public access is not fully blocked"
+      },
+      "remediation_result": {
+        "status": "success",
+        "message": "Public access blocked"
+      }
+    },
+    {
+      "issue": {
+        "type": "public_access_possible",
+        "resource_id": "terraformdataforchatbot",
+        "region": "ap-southeast-1",
+        "severity": "high",
+        "description": "Bucket public access is not fully blocked"
+      },
+      "remediation_result": {
+        "status": "success",
+        "message": "Public access blocked"
+      }
+    },
+    {
+      "issue": {
+        "type": "public_access_possible",
+        "resource_id": "terraformdataforchatbot",
+        "region": "ap-southeast-2",
+        "severity": "high",
+        "description": "Bucket public access is not fully blocked"
+      },
+      "remediation_result": {
+        "status": "success",
+        "message": "Public access blocked"
+      }
+    },
+    {
+      "issue": {
+        "type": "public_access_possible",
+        "resource_id": "terraformdataforchatbot",
+        "region": "ap-northeast-1",
+        "severity": "high",
+        "description": "Bucket public access is not fully blocked"
+      },
+      "remediation_result": {
+        "status": "success",
+        "message": "Public access blocked"
+      }
+    },
+    {
+      "issue": {
+        "type": "public_access_possible",
+        "resource_id": "terraformdataforchatbot",
+        "region": "ap-northeast-2",
+        "severity": "high",
+        "description": "Bucket public access is not fully blocked"
+      },
+      "remediation_result": {
+        "status": "success",
+        "message": "Public access blocked"
+      }
+    },
+    {
+      "issue": {
+        "type": "public_access_possible",
+        "resource_id": "terraformdataforchatbot",
+        "region": "ap-south-1",
+        "severity": "high",
+        "description": "Bucket public access is not fully blocked"
+      },
+      "remediation_result": {
+        "status": "success",
+        "message": "Public access blocked"
+      }
+    },
+    {
+      "issue": {
+        "type": "unused_iam_role",
+        "resource_id": "AWSServiceRoleForApplicationAutoScaling_ECSService",
+        "region": "global",
+        "severity": "medium",
+        "description": "IAM role not used since 2024-10-03T17:08:46+00:00"
+      },
+      "remediation_result": {
+        "status": "skipped",
+        "message": "No remediation available"
+      }
+    }
+  ]
+}

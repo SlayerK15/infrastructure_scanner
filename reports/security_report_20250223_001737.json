@@ -1,0 +1,27 @@
+{
+  "timestamp": "2025-02-22T18:47:33.229894",
+  "issues": [
+    {
+      "type": "unused_iam_role",
+      "resource_id": "AWSServiceRoleForApplicationAutoScaling_ECSService",
+      "region": "global",
+      "severity": "medium",
+      "description": "IAM role not used since 2024-10-03T17:08:46+00:00"
+    }
+  ],
+  "remediation_results": [
+    {
+      "issue": {
+        "type": "unused_iam_role",
+        "resource_id": "AWSServiceRoleForApplicationAutoScaling_ECSService",
+        "region": "global",
+        "severity": "medium",
+        "description": "IAM role not used since 2024-10-03T17:08:46+00:00"
+      },
+      "remediation_result": {
+        "status": "skipped",
+        "message": "No remediation available"
+      }
+    }
+  ]
+}

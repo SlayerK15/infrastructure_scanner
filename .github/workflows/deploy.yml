@@ -1,0 +1,96 @@
+# .github/workflows/aws-scanner.yml
+name: AWS Infrastructure Scanner
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # Run daily at midnight
+  workflow_dispatch:  # Allow manual trigger
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.9'
+          
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install -e .
+          
+      - name: Create config directory
+        run: mkdir -p config
+        
+      - name: Create config file
+        run: |
+          cat > config/config.yaml << EOF
+          aws:
+            regions:
+              - us-east-1
+              - us-east-2
+              - us-west-1
+              - us-west-2
+              - eu-west-1
+              - eu-west-2
+              - eu-central-1
+              - ap-southeast-1
+              - ap-southeast-2
+              - ap-northeast-1
+              - ap-northeast-2
+              - ap-south-1
+            use_env_file: true
+
+          required_tags:
+            - Environment
+            - Owner
+            - Project
+            - CostCenter
+
+          unused_resource_threshold_days: 30
+          unused_cpu_threshold: 5.0
+          unused_iam_threshold_days: 90
+
+          auto_remediate_types:
+            - unencrypted_bucket
+            - public_access_possible
+            - unused_instance
+            - unused_iam_user
+            - unused_iam_role
+
+          auto_remediate_severities:
+            - high
+            - medium
+
+          notifications:
+            email:
+              enabled: true
+              smtp_server: smtp.gmail.com
+              smtp_port: 587
+              use_tls: true
+              username: ${{ secrets.EMAIL_USERNAME }}
+              from_address: ${{ secrets.EMAIL_FROM }}
+              to_address: ${{ secrets.EMAIL_TO }}
+          
+            slack:
+              enabled: false
+          EOF
+          
+      - name: Run AWS Scanner
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          EMAIL_APP_PASSWORD: ${{ secrets.EMAIL_APP_PASSWORD }}
+        run: python -m src.scanner
+        
+      - name: Upload scan report
+        uses: actions/upload-artifact@v4
+        with:
+          name: security-report
+          path: reports/
+          retention-days: 30

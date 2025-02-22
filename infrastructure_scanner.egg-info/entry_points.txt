@@ -1,0 +1,2 @@
+[console_scripts]
+scanner = src.scanner:main
