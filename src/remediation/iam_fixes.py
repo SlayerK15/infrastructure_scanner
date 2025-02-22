@@ -6,8 +6,12 @@ import logging
 logger = logging.getLogger(__name__)
 
 class IAMRemediation:
-    def __init__(self, session: boto3.Session):
-        self.iam_client = session.client('iam')
+    def __init__(self, session=None):
+        if session:
+            self.iam_client = session.client('iam')
+        else:
+            # Fallback to default session with region
+            self.iam_client = boto3.client('iam', region_name='us-east-1')
 
     def delete_unused_user(self, username: str) -> Dict:
         """Delete an unused IAM user."""
@@ -27,14 +31,23 @@ class IAMRemediation:
                 'message': f'Successfully deleted user {username}'
             }
         except Exception as e:
+            error_msg = f"Error deleting IAM user {username}: {str(e)}"
+            logger.error(error_msg)
             return {
                 'status': 'failed',
-                'message': str(e)
+                'message': error_msg
             }
 
     def delete_unused_role(self, role_name: str) -> Dict:
         """Delete an unused IAM role."""
         try:
+            # Skip AWS service roles
+            if role_name.startswith('AWSServiceRole'):
+                return {
+                    'status': 'skipped',
+                    'message': f'Skipping AWS service role {role_name}'
+                }
+
             # Delete role policies
             attached_policies = self.iam_client.list_attached_role_policies(RoleName=role_name)
             for policy in attached_policies['AttachedPolicies']:
@@ -58,7 +71,9 @@ class IAMRemediation:
                 'message': f'Successfully deleted role {role_name}'
             }
         except Exception as e:
+            error_msg = f"Error deleting IAM role {role_name}: {str(e)}"
+            logger.error(error_msg)
             return {
                 'status': 'failed',
-                'message': str(e)
+                'message': error_msg
             }

@@ -5,8 +5,12 @@ import logging
 logger = logging.getLogger(__name__)
 
 class S3Remediator:
-    def __init__(self):
-        self.s3_client = boto3.client('s3')
+    def __init__(self, session=None):
+        if session:
+            self.s3_client = session.client('s3')
+        else:
+            # Fallback to default session with region
+            self.s3_client = boto3.client('s3', region_name='us-east-1')
     
     def remediate(self, issue):
         try:
@@ -20,7 +24,7 @@ class S3Remediator:
             error_msg = f"Error remediating {issue['type']} {issue['resource_id']}: {str(e)}"
             logger.error(error_msg)
             return {'status': 'failed', 'message': error_msg}
-    
+
     def _enable_encryption(self, bucket_name):
         """Enable default encryption for a bucket"""
         try:
